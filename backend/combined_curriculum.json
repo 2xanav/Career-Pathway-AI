@@ -1,0 +1,662 @@
+{
+    "majors": {
+        "Finance": {
+            "degree": "Bachelor of Science in Business Administration",
+            "major": "Finance",
+            "total_hours_required": 121,
+            "curriculum": {
+                "business_foundation_courses": [
+                    {
+                        "id": "ENGLISH 1110",
+                        "prereqs": [],
+                        "hours": "3"
+                    },
+                    {
+                        "id": "MATH 1131",
+                        "prereqs": [],
+                        "hours": "5"
+                    },
+                    {
+                        "id": "STAT 1430",
+                        "prereqs": [],
+                        "hours": "4"
+                    },
+                    {
+                        "id": "ECON 2001",
+                        "prereqs": [],
+                        "hours": "3"
+                    },
+                    {
+                        "id": "ECON 2002",
+                        "prereqs": [],
+                        "hours": "3"
+                    },
+                    {
+                        "id": "CSE 2111",
+                        "prereqs": [],
+                        "hours": "3"
+                    },
+                    {
+                        "id": "ACCTMIS 2200",
+                        "prereqs": [],
+                        "hours": "3"
+                    },
+                    {
+                        "id": "ACCTMIS 2300",
+                        "prereqs": [],
+                        "hours": "3"
+                    },
+                    {
+                        "id": "ACCTMIS 3200",
+                        "prereqs": [
+                            "ACCTMIS 2200",
+                            "ACCTMIS 2300",
+                            "BUSOBA 2320",
+                            "BUSOBA 2321",
+                            "BUSMHR 2292"
+                        ],
+                        "hours": "3"
+                    },
+                    {
+                        "id": "ECON 4002.01",
+                        "prereqs": [
+                            "ECON 2001.01",
+                            "ECON 2002.01"
+                        ],
+                        "hours": "3"
+                    }
+                ],
+                "major_core": [
+                    {
+                        "id": "GENED 1201",
+                        "prereqs": [],
+                        "hours": "1"
+                    },
+                    {
+                        "id": "GENED 4001",
+                        "prereqs": [],
+                        "hours": "1"
+                    },
+                    {
+                        "id": "BUSMHR 2292",
+                        "prereqs": [],
+                        "hours": "3"
+                    },
+                    {
+                        "id": "BUSMHR 2000",
+                        "prereqs": [],
+                        "hours": "1.5"
+                    },
+                    {
+                        "id": "BUSML 3380",
+                        "prereqs": [],
+                        "hours": "1.5"
+                    },
+                    {
+                        "id": "BUSFIN 3220",
+                        "prereqs": [],
+                        "hours": "3"
+                    },
+                    {
+                        "id": "BUSOBA 3230",
+                        "prereqs": [],
+                        "hours": "3"
+                    },
+                    {
+                        "id": "BUSML 3250",
+                        "prereqs": [],
+                        "hours": "3"
+                    },
+                    {
+                        "id": "BUSMHR 3200",
+                        "prereqs": [],
+                        "hours": "3"
+                    },
+                    {
+                        "id": "BUSMHR 4490",
+                        "prereqs": [],
+                        "hours": "3"
+                    },
+                    {
+                        "id": "BUSADM 1100",
+                        "prereqs": [],
+                        "hours": "1"
+                    },
+                    {
+                        "id": "BUSOBA 2320",
+                        "prereqs": [],
+                        "hours": "3"
+                    },
+                    {
+                        "id": "BUSOBA 2321",
+                        "prereqs": [],
+                        "hours": "1.5"
+                    },
+                    {
+                        "id": "BUSFIN 3300",
+                        "prereqs": [
+                            "ECON 2001.01",
+                            "ECON 2002.01",
+                            "BUSMHR 2292",
+                            "ACCTMIS 2200",
+                            "ACCTMIS 2300",
+                            "BUSOBA 2320",
+                            "BUSOBA 2321"
+                        ],
+                        "hours": "3"
+                    }
+                ],
+                "finance_specialization": [
+                    {
+                        "id": "BUSFIN 3500",
+                        "prereqs": [],
+                        "hours": "1.5"
+                    },
+                    {
+                        "id": "BUSFIN 4211",
+                        "prereqs": [],
+                        "hours": "3"
+                    },
+                    {
+                        "id": "BUSFIN 4221",
+                        "prereqs": [],
+                        "hours": "3"
+                    },
+                    {
+                        "id": "BUSFIN 4201",
+                        "prereqs": [],
+                        "hours": "1.5"
+                    },
+                    {
+                        "id": "BUSFIN 4250",
+                        "prereqs": [],
+                        "hours": "1.5"
+                    },
+                    {
+                        "id": "BUSFIN 4211",
+                        "prereqs": [
+                            "ACCTMIS 2200",
+                            "ACCTMIS 2300",
+                            "BUSOBA 2320",
+                            "BUSOBA 2321",
+                            "BUSMHR 2292",
+                            "BUSFIN 3220"
+                        ],
+                        "hours": "3"
+                    },
+                    {
+                        "id": "BUSFIN 4221",
+                        "prereqs": [
+                            "ACCTMIS 2200",
+                            "ACCTMIS 2300",
+                            "BUSOBA 2320",
+                            "BUSOBA 2321",
+                            "BUSMHR 2292",
+                            "BUSFIN 3220"
+                        ],
+                        "hours": "3"
+                    },
+                    {
+                        "id": "BUSFIN 4201",
+                        "prereqs": [
+                            "ACCTMIS 2200",
+                            "ACCTMIS 2300",
+                            "BUSOBA 2320",
+                            "BUSOBA 2321",
+                            "BUSMHR 2292",
+                            "BUSFIN 3220"
+                        ],
+                        "hours": "1.5"
+                    },
+                    {
+                        "id": "BUSFIN 4250",
+                        "prereqs": [
+                            "ACCTMIS 2200",
+                            "ACCTMIS 2300",
+                            "BUSOBA 2320",
+                            "BUSOBA 2321",
+                            "BUSMHR 2292",
+                            "BUSFIN 3220"
+                        ],
+                        "hours": "1.5"
+                    },
+                    {
+                        "id": "BUSFIN 4219",
+                        "prereqs": [
+                            "BUSFIN 4211",
+                            "BUSFIN 4221"
+                        ],
+                        "hours": "3"
+                    },
+                    {
+                        "id": "BUSFIN 4229",
+                        "prereqs": [
+                            "BUSFIN 4211",
+                            "BUSFIN 4221"
+                        ],
+                        "hours": "3"
+                    },
+                    {
+                        "id": "BUSFIN 4239",
+                        "prereqs": [
+                            "BUSFIN 4211",
+                            "BUSFIN 4221"
+                        ],
+                        "hours": "3"
+                    },
+                    {
+                        "id": "BUSFIN 4215",
+                        "prereqs": [
+                            "BUSFIN 4211",
+                            "BUSFIN 4221"
+                        ],
+                        "hours": "1.5"
+                    },
+                    {
+                        "id": "BUSFIN 4216",
+                        "prereqs": [
+                            "BUSFIN 4211",
+                            "BUSFIN 4229"
+                        ],
+                        "hours": "1.5"
+                    },
+                    {
+                        "id": "BUSFIN 4217",
+                        "prereqs": [
+                            "BUSFIN 4211",
+                            "BUSFIN 4221"
+                        ],
+                        "hours": "3"
+                    },
+                    {
+                        "id": "BUSFIN 4218",
+                        "prereqs": [
+                            "BUSFIN 4201",
+                            "BUSFININ 4211",
+                            "BUSFIN 4221",
+                            "BUSFIN 4250"
+                        ],
+                        "hours": "1.5"
+                    },
+                    {
+                        "id": "BUSFIN 4223",
+                        "prereqs": [
+                            "BUSFIN 4211",
+                            "BUSFIN 4221"
+                        ],
+                        "hours": "1.5"
+                    },
+                    {
+                        "id": "BUSFIN 4224",
+                        "prereqs": [
+                            "BUSFIN 4211",
+                            "BUSFIN 4221"
+                        ],
+                        "hours": "1.5"
+                    },
+                    {
+                        "id": "BUSFIN 4225",
+                        "prereqs": [
+                            "BUSFIN 4211",
+                            "BUSFIN 4221"
+                        ],
+                        "hours": "3"
+                    },
+                    {
+                        "id": "BUSFIN 4226",
+                        "prereqs": [
+                            "BUSFIN 4211",
+                            "BUSFIN 4221"
+                        ],
+                        "hours": "1.5"
+                    },
+                    {
+                        "id": "BUSFIN 4227",
+                        "prereqs": [
+                            "BUSFIN 4211",
+                            "BUSFIN 4221"
+                        ],
+                        "hours": "1.5"
+                    },
+                    {
+                        "id": "BUSFIN 4228",
+                        "prereqs": [
+                            "BUSFIN 4211",
+                            "BUSFIN 4221"
+                        ],
+                        "hours": "3"
+                    },
+                    {
+                        "id": "BUSFIN 4234",
+                        "prereqs": [
+                            "BUSFIN 4211",
+                            "BUSFIN 4221"
+                        ],
+                        "hours": "1.5"
+                    },
+                    {
+                        "id": "BUSFIN 4235",
+                        "prereqs": [
+                            "BUSFIN 4211",
+                            "BUSFIN 4221"
+                        ],
+                        "hours": "1.5"
+                    },
+                    {
+                        "id": "BUSFIN 4255",
+                        "prereqs": [
+                            "BUSFIN 4250",
+                            "BUSFIN 4211",
+                            "BUSFIN 4221"
+                        ],
+                        "hours": "3"
+                    },
+                    {
+                        "id": "BUSFIN 4265",
+                        "prereqs": [
+                            "BUSFIN 4211",
+                            "BUSFIN 4221"
+                        ],
+                        "hours": "3"
+                    },
+                    {
+                        "id": "BUSFIN 4280",
+                        "prereqs": [
+                            "BUSFIN 4211",
+                            "BUSFIN 4221"
+                        ],
+                        "hours": "3"
+                    },
+                    {
+                        "id": "BUSFIN 4310",
+                        "prereqs": [
+                            "BUSOBA 2320",
+                            "BUSOBA 2321",
+                            "BUSMHR 2292",
+                            "BUSFIN 3300"
+                        ],
+                        "hours": "3"
+                    },
+                    {
+                        "id": "BUSFIN 4311",
+                        "prereqs": [
+                            "BUSOBA 2320",
+                            "BUSOBA 2321",
+                            "BUSMHR 2292",
+                            "BUSFIN 3300"
+                        ],
+                        "hours": "3"
+                    },
+                    {
+                        "id": "BUSFIN 3400",
+                        "prereqs": [
+                            "ECON 2001.01",
+                            "ECON 2002.01",
+                            "BUSMHR 2292",
+                            "ACCTMIS 2200",
+                            "ACCTMIS 2300",
+                            "BUSOBA 2320",
+                            "BUSOBA 2321"
+                        ],
+                        "hours": "3"
+                    },
+                    {
+                        "id": "BUSFIN 4410",
+                        "prereqs": [
+                            "BUSOBA 2320",
+                            "BUSOBA 2321",
+                            "BUSMHR 2292",
+                            "BUSFIN 3400"
+                        ],
+                        "hours": "3"
+                    },
+                    {
+                        "id": "BUSFIN 5402",
+                        "prereqs": [
+                            "ACCTMIS 2200",
+                            "ACCTMIS 2300",
+                            "BUSOBA 2320",
+                            "BUSOBA 2321",
+                            "BUSMHR 2292",
+                            "BUSFIN 3400"
+                        ],
+                        "hours": "3"
+                    },
+                    {
+                        "id": "BUSFIN 4510",
+                        "prereqs": [
+                            "BUSMHR 2292",
+                            "ACCTMIS 2200",
+                            "ACCTMIS 2300",
+                            "BUSOBA 2320",
+                            "BUSOBA 2321",
+                            "BUSFIN 3500"
+                        ],
+                        "hours": "1.5"
+                    }
+                ]
+            }
+        },
+        "CSE": {
+            "degree": "Bachelor of Science in Computer Science and Engineering",
+            "major": "CSE",
+            "curriculum": {
+                "general_engineering": [],
+                "cse_core": [
+                    {
+                        "id": "CSE 2221",
+                        "hours": 4.0,
+                        "prereqs": []
+                    },
+                    {
+                        "id": "CSE 2231",
+                        "hours": 4.0,
+                        "prereqs": []
+                    },
+                    {
+                        "id": "CSE 2321",
+                        "hours": 3.0,
+                        "prereqs": []
+                    },
+                    {
+                        "id": "CSE 2331",
+                        "hours": 3.0,
+                        "prereqs": []
+                    },
+                    {
+                        "id": "CSE 2421",
+                        "hours": 3.5,
+                        "prereqs": []
+                    },
+                    {
+                        "id": "CSE 2431",
+                        "hours": 3.5,
+                        "prereqs": []
+                    },
+                    {
+                        "id": "CSE 3341",
+                        "hours": 3.0,
+                        "prereqs": []
+                    },
+                    {
+                        "id": "CSE 2501",
+                        "hours": 1.0,
+                        "prereqs": []
+                    },
+                    {
+                        "id": "CSE 3231",
+                        "hours": 1.5,
+                        "prereqs": []
+                    },
+                    {
+                        "id": "CSE 3241",
+                        "hours": 1.5,
+                        "prereqs": []
+                    },
+                    {
+                        "id": "CSE 3421",
+                        "hours": 1.5,
+                        "prereqs": []
+                    },
+                    {
+                        "id": "CSE 3461",
+                        "hours": 1.5,
+                        "prereqs": []
+                    },
+                    {
+                        "id": "CSE 3521",
+                        "hours": 1.5,
+                        "prereqs": []
+                    },
+                    {
+                        "id": "CSE 3541",
+                        "hours": 1.5,
+                        "prereqs": []
+                    },
+                    {
+                        "id": "CSE 3901",
+                        "hours": 4.0,
+                        "prereqs": []
+                    },
+                    {
+                        "id": "CSE 3902",
+                        "hours": 4.0,
+                        "prereqs": []
+                    },
+                    {
+                        "id": "CSE 3903",
+                        "hours": 4.0,
+                        "prereqs": []
+                    },
+                    {
+                        "id": "CSE 5911",
+                        "hours": 4.0,
+                        "prereqs": []
+                    },
+                    {
+                        "id": "CSE 5912",
+                        "hours": 4.0,
+                        "prereqs": []
+                    },
+                    {
+                        "id": "CSE 5913",
+                        "hours": 4.0,
+                        "prereqs": []
+                    },
+                    {
+                        "id": "CSE 5914",
+                        "hours": 4.0,
+                        "prereqs": []
+                    },
+                    {
+                        "id": "CSE 5915",
+                        "hours": 4.0,
+                        "prereqs": []
+                    },
+                    {
+                        "id": "CSE 4251",
+                        "hours": 1.0,
+                        "prereqs": []
+                    },
+                    {
+                        "id": "CSE 4193",
+                        "hours": 2.0,
+                        "prereqs": []
+                    },
+                    {
+                        "id": "CSE 1223",
+                        "hours": 0.5,
+                        "prereqs": []
+                    },
+                    {
+                        "id": "CSE 2221",
+                        "hours": 0.5,
+                        "prereqs": []
+                    },
+                    {
+                        "id": "CSE 2231",
+                        "hours": 0.4,
+                        "prereqs": []
+                    },
+                    {
+                        "id": "CSE 2321",
+                        "hours": 0.4,
+                        "prereqs": []
+                    },
+                    {
+                        "id": "CSE 2331",
+                        "hours": 0.4,
+                        "prereqs": []
+                    },
+                    {
+                        "id": "CSE 2421",
+                        "hours": 0.4,
+                        "prereqs": []
+                    },
+                    {
+                        "id": "CSE 2431",
+                        "hours": 1.0,
+                        "prereqs": []
+                    },
+                    {
+                        "id": "CSE 2501",
+                        "hours": 1.0,
+                        "prereqs": []
+                    },
+                    {
+                        "id": "CSE 3341",
+                        "hours": 4.0,
+                        "prereqs": []
+                    }
+                ],
+                "math_science_electives": [
+                    {
+                        "id": "ECE 2020",
+                        "hours": 3.0,
+                        "prereqs": []
+                    },
+                    {
+                        "id": "ECE 2060",
+                        "hours": 3.0,
+                        "prereqs": []
+                    },
+                    {
+                        "id": "ENR 2100",
+                        "hours": 3.0,
+                        "prereqs": []
+                    },
+                    {
+                        "id": "ENR 3000",
+                        "hours": 2.0,
+                        "prereqs": []
+                    },
+                    {
+                        "id": "ENR 3001",
+                        "hours": 2.0,
+                        "prereqs": []
+                    },
+                    {
+                        "id": "HCS 2201",
+                        "hours": 4.0,
+                        "prereqs": []
+                    },
+                    {
+                        "id": "HCS 2202",
+                        "hours": 4.0,
+                        "prereqs": []
+                    },
+                    {
+                        "id": "ECE 2060",
+                        "hours": 0.4,
+                        "prereqs": []
+                    },
+                    {
+                        "id": "ECE 2020",
+                        "hours": 1.0,
+                        "prereqs": []
+                    }
+                ]
+            }
+        }
+    }
+}

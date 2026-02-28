@@ -37,8 +37,8 @@ def load_json(filename: str):
 
 # --- Load config + data ---
 config = load_json("credentials.json")
-classes_data = load_json("classes.json")   # can be list or dict depending on your file
-times = load_json("times.json")
+classes_data = load_json("combined_curriculum.json")   # can be list or dict depending on your file
+times = load_json("full_course_schedule.json")
 
 # Normalize classes into a set of allowed class names
 # Supports either:
