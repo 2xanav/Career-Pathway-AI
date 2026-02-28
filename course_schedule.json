@@ -1,0 +1,241 @@
+{
+    "ACCTMIS 2200": [
+        {
+            "type": "Recitation",
+            "days": "MWT",
+            "time": "11:10 am - 12:30 pm"
+        },
+        {
+            "type": "Lecture",
+            "days": "M",
+            "time": "11:10 am - 12:30 pm"
+        },
+        {
+            "type": "Recitation",
+            "days": "W",
+            "time": "11:10 am - 12:30 pm"
+        },
+        {
+            "type": "Lecture",
+            "days": "W",
+            "time": "11:10 am - 12:30 pm"
+        },
+        {
+            "type": "Lecture",
+            "days": "M",
+            "time": "9:35 am - 10:55 am"
+        },
+        {
+            "type": "Recitation",
+            "days": "W",
+            "time": "9:35 am - 10:55 am"
+        },
+        {
+            "type": "Lecture",
+            "days": "W",
+            "time": "9:35 am - 10:55 am"
+        },
+        {
+            "type": "Recitation",
+            "days": "M",
+            "time": "9:10 am - 10:05 am"
+        },
+        {
+            "type": "Lecture",
+            "days": "M",
+            "time": "9:10 am - 10:05 am"
+        },
+        {
+            "type": "Lab",
+            "days": "T",
+            "time": "12:45 pm - 2:05 pm"
+        },
+        {
+            "type": "Lecture",
+            "days": "T",
+            "time": "12:45 pm - 2:05 pm"
+        },
+        {
+            "type": "Lab",
+            "days": "T",
+            "time": "9:35 am - 10:55 am"
+        },
+        {
+            "type": "Lecture",
+            "days": "T",
+            "time": "9:35 am - 10:55 am"
+        },
+        {
+            "type": "Lab",
+            "days": "T",
+            "time": "11:10 am - 12:30 pm"
+        },
+        {
+            "type": "Lecture",
+            "days": "T",
+            "time": "11:10 am - 12:30 pm"
+        },
+        {
+            "type": "Lab",
+            "days": "T",
+            "time": "5:30 pm - 6:50 pm"
+        },
+        {
+            "type": "Lecture",
+            "days": "T",
+            "time": "5:30 pm - 6:50 pm"
+        },
+        {
+            "type": "Lab",
+            "days": "T",
+            "time": "3:55 pm - 5:15 pm"
+        },
+        {
+            "type": "Lecture",
+            "days": "T",
+            "time": "3:55 pm - 5:15 pm"
+        },
+        {
+            "type": "Lab",
+            "days": "T",
+            "time": "4:30 pm - 5:50 pm"
+        },
+        {
+            "type": "Lecture",
+            "days": "T",
+            "time": "4:30 pm - 5:50 pm"
+        },
+        {
+            "type": "Recitation",
+            "days": "M",
+            "time": "8:00 am - 8:55 am"
+        },
+        {
+            "type": "Lecture",
+            "days": "M",
+            "time": "8:00 am - 8:55 am"
+        },
+        {
+            "type": "Lab",
+            "days": "T",
+            "time": "2:20 pm - 3:40 pm"
+        },
+        {
+            "type": "Lecture",
+            "days": "T",
+            "time": "2:20 pm - 3:40 pm"
+        },
+        {
+            "type": "Recitation",
+            "days": "M",
+            "time": "10:20 am - 11:15 am"
+        },
+        {
+            "type": "Lecture",
+            "days": "M",
+            "time": "10:20 am - 11:15 am"
+        },
+        {
+            "type": "Lab",
+            "days": "T",
+            "time": "6:00 pm - 7:20 pm"
+        },
+        {
+            "type": "Lecture",
+            "days": "T",
+            "time": "6:00 pm - 7:20 pm"
+        },
+        {
+            "type": "Recitation",
+            "days": "M",
+            "time": "11:30 am - 12:25 pm"
+        },
+        {
+            "type": "Lecture",
+            "days": "M",
+            "time": "11:30 am - 12:25 pm"
+        },
+        {
+            "type": "Lab",
+            "days": "T",
+            "time": "3:15 pm - 4:35 pm"
+        },
+        {
+            "type": "Lecture",
+            "days": "T",
+            "time": "3:15 pm - 4:35 pm"
+        },
+        {
+            "type": "Lab",
+            "days": "T",
+            "time": "6:15 pm - 7:35 pm"
+        },
+        {
+            "type": "Lecture",
+            "days": "T",
+            "time": "6:15 pm - 7:35 pm"
+        },
+        {
+            "type": "Recitation",
+            "days": "M",
+            "time": "1:50 pm - 2:45 pm"
+        },
+        {
+            "type": "Lecture",
+            "days": "M",
+            "time": "1:50 pm - 2:45 pm"
+        },
+        {
+            "type": "Lab",
+            "days": "T",
+            "time": "4:45 pm - 6:05 pm"
+        },
+        {
+            "type": "Lecture",
+            "days": "T",
+            "time": "4:45 pm - 6:05 pm"
+        }
+    ],
+    "CSE 3901": [
+        {
+            "type": "Lecture",
+            "days": "MWFTR",
+            "time": "9:10 am - 10:05 am"
+        },
+        {
+            "type": "Lecture",
+            "days": "MWF",
+            "time": "9:10 am - 10:05 am"
+        },
+        {
+            "type": "Lecture",
+            "days": "TR",
+            "time": "6:30 pm - 7:50 pm"
+        },
+        {
+            "type": "Lecture",
+            "days": "MW",
+            "time": "5:30 pm - 6:50 pm"
+        },
+        {
+            "type": "Lecture",
+            "days": "MWF",
+            "time": "10:20 am - 11:15 am"
+        },
+        {
+            "type": "Lecture",
+            "days": "MWF",
+            "time": "3:00 pm - 3:55 pm"
+        },
+        {
+            "type": "Lecture",
+            "days": "TR",
+            "time": "5:30 pm - 6:50 pm"
+        },
+        {
+            "type": "Lecture",
+            "days": "MWF",
+            "time": "11:30 am - 12:25 pm"
+        }
+    ]
+}
