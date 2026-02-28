@@ -1,11 +1,40 @@
 import "./App.css";
-import { useState } from "react";
+import { useState, useEffect} from "react";
 
 function App() {
 
-  const [major, setMajor] = useState("");
-  const [genEd, setGenEd] = useState("");
-  const [wakeTime, setWakeTime] = useState("");
+  const [major, setMajor] = useState(localStorage.getItem("major") || "");
+  const [genEd, setGenEd] = useState(localStorage.getItem("genEd") || "");
+  const [wakeTime, setWakeTime] = useState(localStorage.getItem("wakeTime") || "");
+
+  // Update localStorage whenever values change
+  useEffect(() => {
+    localStorage.setItem("major", major);
+    localStorage.setItem("genEd", genEd);
+    localStorage.setItem("wakeTime", wakeTime);
+  }, [major, genEd, wakeTime]);
+
+  // Simulate sending data to backend
+  const handleSubmit = async () => {
+    const payload = { major, genEd, wakeTime };
+
+    try {
+      const response = await fetch("http://localhost:5000/save", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      if (response.ok) {
+        alert("Selections saved successfully!");
+      } else {
+        alert("Failed to save selections");
+      }
+    } catch (error) {
+      console.error(error);
+      alert("Error connecting to backend");
+    }
+  };
 
   return (
     <div className="homepage">
