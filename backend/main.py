@@ -1,145 +1,52 @@
 import json
-import asyncio
-import sys
-import re
-from playwright.async_api import async_playwright
-from bs4 import BeautifulSoup
+from ibm_watson import AssistantV1
+from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
+from flask import Flask, request, jsonify
 
-if sys.platform == 'win32':
-    asyncio.set_event_loop_policy(asyncio.WindowsProactorEventLoopPolicy())
+app = Flask(__name__)
 
-def extract_courses_from_json():
-    print("📂 Reading curriculum JSON files...")
-    all_courses = set() # Using a set automatically removes duplicates
-    
-    # 1. Read the Business/Finance JSON
+# Load the configuration file
+with open('credentials.json') as f:
+    config = json.load(f)
+
+# Create an authenticator
+authenticator = IAMAuthenticator(apikey=config['api_key'])
+
+assistant = AssistantV1(
+    version='2022-04-07',
+    authenticator=authenticator
+)
+
+# Set the URL
+assistant.set_service_url(config['url'])
+
+# Define a route for the homepage
+@app.route('/', methods=['GET'])
+def index():
+    return 'Welcome to the Watson Assistant API!'
+
+# Define a route for sending messages to the assistant
+@app.route('/message', methods=['POST'])
+def send_message():
     try:
-        with open('curriculum_data.json', 'r') as f:
-            finance_data = json.load(f)
-            for category, classes in finance_data.get('curriculum', {}).items():
-                for course in classes:
-                    all_courses.add(course['id'])
-    except Exception as e:
-        print(f"⚠️ Could not read curriculum_data.json: {e}")
+        # Get the message from the request body
+        message = request.get_json()['message']
 
-    # 2. Read the CSE JSON
-    try:
-        with open('cse_curriculum_data.json', 'r') as f:
-            cse_data = json.load(f)
-            for category, classes in cse_data.get('curriculum', {}).items():
-                for course in classes:
-                    all_courses.add(course['id'])
-    except Exception as e:
-        print(f"⚠️ Could not read cse_curriculum_data.json: {e}")
+        # Validate the input message
+        if not message:
+            return jsonify({'error': 'Message is required'}), 400
 
-    # Convert the set back to a sorted list
-    target_list = sorted(list(all_courses))
-    print(f"🎯 Successfully loaded {len(target_list)} unique courses to scrape.\n")
-    return target_list
-
-async def scrape_osu_courses(target_courses):
-    results = {course: [] for course in target_courses}
-    
-    async with async_playwright() as p:
-        browser = await p.chromium.launch(headless=True) 
-        context = await browser.new_context(
-            user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+        # Send the message to the assistant
+        response = assistant.message(
+            assistant_id=config['assistant_id'],
+            input={'message_type': 'text', 'text': message}
         )
-        page = await context.new_page()
-        
-        # We add a counter to track progress since it will take a while
-        total = len(target_courses)
-        for index, target_course in enumerate(target_courses, 1):
-            
-            await page.goto("about:blank") # Hard reset for SPA
-            
-            url = f"https://classes.osu.edu/#/?q={target_course.replace(' ', '%20')}&client=class-search-ui&campus=col&p=1"
-            print(f"[{index}/{total}] 🌐 Navigating to: {target_course}")
-            
-            try:
-                await page.goto(url, timeout=60000)
-                
-                try:
-                    await page.wait_for_selector(f"text={target_course}", timeout=20000)
-                except:
-                    await page.wait_for_selector(".course, .search-results", timeout=15000)
 
-                await asyncio.sleep(5) 
+        # Return the response
+        return jsonify(response.get_result())
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
 
-                content = await page.content()
-                soup = BeautifulSoup(content, 'html.parser')
-                
-                course_block = None
-                for div in soup.find_all('div', class_=re.compile(r'course|result-container')):
-                    target_clean = target_course.replace(" ", "").lower()
-                    div_clean = div.get_text().replace(" ", "").lower()
-                    
-                    if target_clean in div_clean:
-                        course_block = div
-                        break
-                
-                if course_block:
-                    rows = course_block.select('.result-row') or course_block.find_all('div', recursive=True)
-                    
-                    for row in rows:
-                        text = row.get_text(separator=" ")
-                        
-                        if "am" in text.lower() or "pm" in text.lower():
-                            
-                            # IDENTIFY COMPONENT TYPE
-                            comp_type = "Lecture" 
-                            if re.search(r'\b(Recitation|REC)\b', text, re.I):
-                                comp_type = "Recitation"
-                            elif re.search(r'\b(Laboratory|Lab|LAB)\b', text, re.I):
-                                comp_type = "Lab"
-                            elif re.search(r'\b(Seminar|SEM)\b', text, re.I):
-                                comp_type = "Seminar"
-
-                            # EXTRACT TIME
-                            time_match = re.search(r'(\d{1,2}:\d{2}\s*(?:am|pm)\s*-\s*\d{1,2}:\d{2}\s*(?:am|pm))', text, re.I)
-                            time_str = time_match.group(1) if time_match else "TBA"
-
-                            # EXTRACT DAYS
-                            active_days = []
-                            for active_el in row.find_all(class_=re.compile(r'active')):
-                                day_txt = active_el.get_text(strip=True)
-                                if len(day_txt) <= 2 and day_txt not in active_days: 
-                                    active_days.append(day_txt)
-                            
-                            days_val = "".join(active_days)
-                            
-                            if time_str != "TBA" and days_val != "":
-                                entry = {"type": comp_type, "days": days_val, "time": time_str}
-                                if entry not in results[target_course]:
-                                    results[target_course].append(entry)
-                    
-                    print(f"      ✅ Saved {len(results[target_course])} sections.")
-                else:
-                    print(f"      ❌ No data block found.")
-
-            except Exception as e:
-                print(f"      💥 Error: {e}")
-
-        await browser.close()
-    return results
-
-async def main():
-    # 1. Dynamically pull the list from the JSON files
-    targets = extract_courses_from_json()
-    
-    if not targets:
-        print("❌ No courses found to scrape. Check your JSON files.")
-        return
-
-    # 2. Scrape the massive list
-    print("🚀 Starting bulk scrape. This will take several minutes...\n")
-    data = await scrape_osu_courses(targets)
-    
-    # 3. Save the mega-dictionary
-    with open('full_course_schedule.json', 'w') as f:
-        json.dump(data, f, indent=4)
-        
-    print("\n🎉 DONE! All schedules saved to 'full_course_schedule.json'.")
-
-if __name__ == "__main__":
-    asyncio.run(main())
+# Run the application
+if __name__ == '__main__':
+    app.run(debug=True)
