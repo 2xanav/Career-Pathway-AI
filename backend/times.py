@@ -1,3 +1,4 @@
+import os
 import json
 import asyncio
 import sys
@@ -5,37 +6,50 @@ import re
 from playwright.async_api import async_playwright
 from bs4 import BeautifulSoup
 
+# Fix for Windows asyncio event loop (Required for Playwright)
 if sys.platform == 'win32':
     asyncio.set_event_loop_policy(asyncio.WindowsProactorEventLoopPolicy())
 
 def extract_courses_from_json():
-    print("📂 Reading curriculum JSON files...")
-    all_courses = set() # Using a set automatically removes duplicates
+    # Automatically find the exact folder where this Python script is saved
+    script_dir = os.path.dirname(os.path.abspath(__file__))
     
-    # 1. Read the Business/Finance JSON
+    # Create the full, exact paths to the JSON files
+    finance_path = os.path.join(script_dir, 'curriculum_data.json')
+    cse_path = os.path.join(script_dir, 'cse_curriculum_data.json')
+    
+    print(f"📂 Looking for Finance JSON at: {finance_path}")
+    print(f"📂 Looking for CSE JSON at: {cse_path}")
+    
+    all_courses = set()
+    
+    # 1. Read Business/Finance JSON
     try:
-        with open('curriculum_data.json', 'r') as f:
+        with open(finance_path, 'r', encoding='utf-8') as f:
             finance_data = json.load(f)
             for category, classes in finance_data.get('curriculum', {}).items():
                 for course in classes:
                     all_courses.add(course['id'])
+        print("✅ Finance JSON loaded successfully.")
     except Exception as e:
-        print(f"⚠️ Could not read curriculum_data.json: {e}")
+        print(f"⚠️ Failed to read Finance JSON: {e}")
 
-    # 2. Read the CSE JSON
+    # 2. Read CSE JSON
     try:
-        with open('cse_curriculum_data.json', 'r') as f:
+        with open(cse_path, 'r', encoding='utf-8') as f:
             cse_data = json.load(f)
             for category, classes in cse_data.get('curriculum', {}).items():
                 for course in classes:
                     all_courses.add(course['id'])
+        print("✅ CSE JSON loaded successfully.")
     except Exception as e:
-        print(f"⚠️ Could not read cse_curriculum_data.json: {e}")
+        print(f"⚠️ Failed to read CSE JSON: {e}")
 
-    # Convert the set back to a sorted list
+    # Format IDs (e.g., "CSE 2221" instead of "CSE2221" if they are mashed together)
+    # We also sort them alphabetically so the console output looks organized
     target_list = sorted(list(all_courses))
-    print(f"🎯 Successfully loaded {len(target_list)} unique courses to scrape.\n")
-    return target_list
+    print(f"\n🎯 Successfully loaded {len(target_list)} unique courses to scrape.\n")
+    return target_list, script_dir
 
 async def scrape_osu_courses(target_courses):
     results = {course: [] for course in target_courses}
@@ -47,14 +61,14 @@ async def scrape_osu_courses(target_courses):
         )
         page = await context.new_page()
         
-        # We add a counter to track progress since it will take a while
         total = len(target_courses)
         for index, target_course in enumerate(target_courses, 1):
             
-            await page.goto("about:blank") # Hard reset for SPA
+            # Hard reset for SPA (Single Page Application)
+            await page.goto("about:blank") 
             
             url = f"https://classes.osu.edu/#/?q={target_course.replace(' ', '%20')}&client=class-search-ui&campus=col&p=1"
-            print(f"[{index}/{total}] 🌐 Navigating to: {target_course}")
+            print(f"[{index}/{total}] 🌐 Scraping: {target_course}")
             
             try:
                 await page.goto(url, timeout=60000)
@@ -71,6 +85,7 @@ async def scrape_osu_courses(target_courses):
                 
                 course_block = None
                 for div in soup.find_all('div', class_=re.compile(r'course|result-container')):
+                    # Spaceless comparison to avoid hidden HTML space bugs
                     target_clean = target_course.replace(" ", "").lower()
                     div_clean = div.get_text().replace(" ", "").lower()
                     
@@ -99,7 +114,7 @@ async def scrape_osu_courses(target_courses):
                             time_match = re.search(r'(\d{1,2}:\d{2}\s*(?:am|pm)\s*-\s*\d{1,2}:\d{2}\s*(?:am|pm))', text, re.I)
                             time_str = time_match.group(1) if time_match else "TBA"
 
-                            # EXTRACT DAYS
+                            # EXTRACT DAYS (No duplicates)
                             active_days = []
                             for active_el in row.find_all(class_=re.compile(r'active')):
                                 day_txt = active_el.get_text(strip=True)
@@ -108,6 +123,7 @@ async def scrape_osu_courses(target_courses):
                             
                             days_val = "".join(active_days)
                             
+                            # SAVE IF VALID
                             if time_str != "TBA" and days_val != "":
                                 entry = {"type": comp_type, "days": days_val, "time": time_str}
                                 if entry not in results[target_course]:
@@ -115,7 +131,7 @@ async def scrape_osu_courses(target_courses):
                     
                     print(f"      ✅ Saved {len(results[target_course])} sections.")
                 else:
-                    print(f"      ❌ No data block found.")
+                    print(f"      ❌ No sections found.")
 
             except Exception as e:
                 print(f"      💥 Error: {e}")
@@ -124,22 +140,23 @@ async def scrape_osu_courses(target_courses):
     return results
 
 async def main():
-    # 1. Dynamically pull the list from the JSON files
-    targets = extract_courses_from_json()
+    # 1. Pull the list from the JSON files and get the save directory
+    targets, script_dir = extract_courses_from_json()
     
     if not targets:
-        print("❌ No courses found to scrape. Check your JSON files.")
+        print("❌ No courses found to scrape. Check your JSON files and paths.")
         return
 
-    # 2. Scrape the massive list
+    # 2. Scrape the list
     print("🚀 Starting bulk scrape. This will take several minutes...\n")
     data = await scrape_osu_courses(targets)
     
-    # 3. Save the mega-dictionary
-    with open('full_course_schedule.json', 'w') as f:
+    # 3. Save the mega-dictionary in the exact same folder
+    save_path = os.path.join(script_dir, 'full_course_schedule.json')
+    with open(save_path, 'w') as f:
         json.dump(data, f, indent=4)
         
-    print("\n🎉 DONE! All schedules saved to 'full_course_schedule.json'.")
+    print(f"\n🎉 DONE! All schedules saved to:\n{save_path}")
 
 if __name__ == "__main__":
     asyncio.run(main())
