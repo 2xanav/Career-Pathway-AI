@@ -1,0 +1,221 @@
+{
+    "degree": "Bachelor of Science in Computer Science and Engineering",
+    "major": "CSE",
+    "curriculum": {
+        "general_engineering": [],
+        "cse_core": [
+            {
+                "id": "CSE 2221",
+                "hours": 4.0,
+                "prereqs": []
+            },
+            {
+                "id": "CSE 2231",
+                "hours": 4.0,
+                "prereqs": []
+            },
+            {
+                "id": "CSE 2321",
+                "hours": 3.0,
+                "prereqs": []
+            },
+            {
+                "id": "CSE 2331",
+                "hours": 3.0,
+                "prereqs": []
+            },
+            {
+                "id": "CSE 2421",
+                "hours": 3.5,
+                "prereqs": []
+            },
+            {
+                "id": "CSE 2431",
+                "hours": 3.5,
+                "prereqs": []
+            },
+            {
+                "id": "CSE 3341",
+                "hours": 3.0,
+                "prereqs": []
+            },
+            {
+                "id": "CSE 2501",
+                "hours": 1.0,
+                "prereqs": []
+            },
+            {
+                "id": "CSE 3231",
+                "hours": 1.5,
+                "prereqs": []
+            },
+            {
+                "id": "CSE 3241",
+                "hours": 1.5,
+                "prereqs": []
+            },
+            {
+                "id": "CSE 3421",
+                "hours": 1.5,
+                "prereqs": []
+            },
+            {
+                "id": "CSE 3461",
+                "hours": 1.5,
+                "prereqs": []
+            },
+            {
+                "id": "CSE 3521",
+                "hours": 1.5,
+                "prereqs": []
+            },
+            {
+                "id": "CSE 3541",
+                "hours": 1.5,
+                "prereqs": []
+            },
+            {
+                "id": "CSE 3901",
+                "hours": 4.0,
+                "prereqs": []
+            },
+            {
+                "id": "CSE 3902",
+                "hours": 4.0,
+                "prereqs": []
+            },
+            {
+                "id": "CSE 3903",
+                "hours": 4.0,
+                "prereqs": []
+            },
+            {
+                "id": "CSE 5911",
+                "hours": 4.0,
+                "prereqs": []
+            },
+            {
+                "id": "CSE 5912",
+                "hours": 4.0,
+                "prereqs": []
+            },
+            {
+                "id": "CSE 5913",
+                "hours": 4.0,
+                "prereqs": []
+            },
+            {
+                "id": "CSE 5914",
+                "hours": 4.0,
+                "prereqs": []
+            },
+            {
+                "id": "CSE 5915",
+                "hours": 4.0,
+                "prereqs": []
+            },
+            {
+                "id": "CSE 4251",
+                "hours": 1.0,
+                "prereqs": []
+            },
+            {
+                "id": "CSE 4193",
+                "hours": 2.0,
+                "prereqs": []
+            },
+            {
+                "id": "CSE 1223",
+                "hours": 0.5,
+                "prereqs": []
+            },
+            {
+                "id": "CSE 2221",
+                "hours": 0.5,
+                "prereqs": []
+            },
+            {
+                "id": "CSE 2231",
+                "hours": 0.4,
+                "prereqs": []
+            },
+            {
+                "id": "CSE 2321",
+                "hours": 0.4,
+                "prereqs": []
+            },
+            {
+                "id": "CSE 2331",
+                "hours": 0.4,
+                "prereqs": []
+            },
+            {
+                "id": "CSE 2421",
+                "hours": 0.4,
+                "prereqs": []
+            },
+            {
+                "id": "CSE 2431",
+                "hours": 1.0,
+                "prereqs": []
+            },
+            {
+                "id": "CSE 2501",
+                "hours": 1.0,
+                "prereqs": []
+            },
+            {
+                "id": "CSE 3341",
+                "hours": 4.0,
+                "prereqs": []
+            }
+        ],
+        "math_science_electives": [
+            {
+                "id": "ECE 2020",
+                "hours": 3.0,
+                "prereqs": []
+            },
+            {
+                "id": "ECE 2060",
+                "hours": 3.0,
+                "prereqs": []
+            },
+            {
+                "id": "ENR 2100",
+                "hours": 3.0,
+                "prereqs": []
+            },
+            {
+                "id": "ENR 3000",
+                "hours": 2.0,
+                "prereqs": []
+            },
+            {
+                "id": "ENR 3001",
+                "hours": 2.0,
+                "prereqs": []
+            },
+            {
+                "id": "HCS 2201",
+                "hours": 4.0,
+                "prereqs": []
+            },
+            {
+                "id": "HCS 2202",
+                "hours": 4.0,
+                "prereqs": []
+            },
+            {
+                "id": "ECE 2060",
+                "hours": 0.4,
+                "prereqs": []
+            },
+            {
+                "id": "ECE 2020",
+                "hours": 1.0,
+                "prereqs": []
+            }
+        ]
+    }
+}
