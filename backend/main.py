@@ -2,11 +2,12 @@ import json
 import os
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-
 from ibm_watsonx_ai.foundation_models import ModelInference
 
 app = Flask(__name__)
 CORS(app)
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 @app.route("/save", methods=["POST"])
 def save_schedule():
@@ -24,12 +25,8 @@ def save_schedule():
 
     return jsonify({"message": "Data received successfully!"})
 
-if __name__ == "__main__":
-    app.run(port=5000, debug=True)
 
 # --- Paths (prevents FileNotFoundError when running from different folders) ---
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-
 def load_json(filename: str):
     path = os.path.join(BASE_DIR, filename)
     with open(path, "r", encoding="utf-8") as f:
